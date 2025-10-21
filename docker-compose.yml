@@ -1,0 +1,17 @@
+version: "3"
+services:
+  sample-api:
+    container_name: "sample-api"
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - "5000:5000"
+    volumes:
+      # バインドマウント
+      - .:/workspace
+    # 環境変数読み込み
+    env_file:
+      - .env
+    tty: true
